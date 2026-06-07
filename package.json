@@ -7,11 +7,20 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.4.4"
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.4",
+    "astro-seo": "^1.1.0",
+    "astro-typesafe-routes": "^5.1.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@biomejs/biome": "2.4.16",
+    "typescript": "^6.0.3"
   }
 }
