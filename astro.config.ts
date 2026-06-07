@@ -1,5 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, envField, fontProviders } from "astro/config";
 
 import typesafeRoutes from "astro-typesafe-routes";
 
@@ -29,4 +29,17 @@ export default defineConfig({
       },
     },
   ],
+  env: {
+    schema: {
+      MAILJET_API_KEY: envField.string({
+        context: "server",
+        access: "secret",
+        default: "ac6bedaf9e8041c7d99f65822a864baf",
+      }),
+      MAILJET_API_SECRET: envField.string({
+        context: "server",
+        access: "secret",
+      }),
+    },
+  },
 });
