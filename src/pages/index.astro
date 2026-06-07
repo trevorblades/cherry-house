@@ -1,7 +1,31 @@
 ---
+import Arrow from "../assets/icons/arrow.svg";
+import Logo from "../assets/logo.svg";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>Cherry house</h1>
+  <Logo />
+  <p class="uppercase tracking-wide text-lg leading-tight text-center">
+    Cool fuckin' type is the mission. <br>
+    Launching 2026.
+  </p>
+  <div class="space-y-6">
+    <form class="flex gap-4">
+      <input
+        required
+        type="email"
+        name="email"
+        placeholder="Email"
+        class="border rounded-xl h-11 text-center tracking-wider font-bold"
+      >
+      <button
+        type="submit"
+        class="border size-11 rounded-xl flex items-center justify-center hover:bg-purple hover:text-black hover:border-none cursor-pointer"
+      >
+        <Arrow class="size-5.75 fill-current" />
+      </button>
+    </form>
+    <p class="tracking-wide">Join for updates & discounts.</p>
+  </div>
 </Layout>

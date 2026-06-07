@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #e2ffbe;
-  --color-secondary: #6b61ff;
+  --color-glow: #e2ffbe;
+  --color-purple: #6b61ff;
+
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.03em;
+}
+
+@theme inline {
+  --font-sans: var(--font-codec-pro);
 }
