@@ -7,24 +7,24 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <div
-    class="flex min-h-screen justify-center flex-col items-center gap-32 bg-[url(/images/bg.webp)] bg-cover bg-center"
+    class="flex min-h-screen justify-center flex-col items-center gap-35 md:gap-33.25 bg-[url(/images/bg.webp)] bg-cover bg-center"
   >
-    <div class="space-y-14">
-      <Logo />
+    <div class="flex flex-col gap-7.5 md:gap-14 items-center">
+      <Logo class="w-52.5 md:w-103" />
       <p
-        class="uppercase font-bold tracking-wide text-lg leading-tight text-center"
+        class="uppercase font-bold tracking-wide text-xs md:text-lg leading-tight text-center"
       >
         Cool fuckin' type is the mission. <br>
         Launching 2026.
       </p>
     </div>
-    <div class="flex flex-col items-center gap-6 text-center">
+    <div class="flex flex-col items-center gap-4 md:gap-6 text-center">
       <NewsletterForm client:load />
     </div>
   </div>
   <a
     href="https://www.instagram.com/cherryhousetype"
-    class="absolute top-6 right-6 p-1 hover:text-purple"
+    class="absolute top-5 right-5 p-1 hover:text-purple"
     target="_blank"
     rel="noopener"
   >
