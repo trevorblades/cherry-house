@@ -1,31 +1,33 @@
 ---
-import Arrow from "../assets/icons/arrow.svg";
+import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Logo from "../assets/logo.svg";
+import { NewsletterForm } from "../components/NewsletterForm";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <Logo />
-  <p class="uppercase tracking-wide text-lg leading-tight text-center">
-    Cool fuckin' type is the mission. <br>
-    Launching 2026.
-  </p>
-  <div class="space-y-6">
-    <form class="flex gap-4">
-      <input
-        required
-        type="email"
-        name="email"
-        placeholder="Email"
-        class="border rounded-xl h-11 text-center tracking-wider font-bold"
+  <div
+    class="flex min-h-screen justify-center flex-col items-center gap-32 bg-[url(/images/bg.webp)] bg-cover bg-center"
+  >
+    <div class="space-y-14">
+      <Logo />
+      <p
+        class="uppercase font-bold tracking-wide text-lg leading-tight text-center"
       >
-      <button
-        type="submit"
-        class="border size-11 rounded-xl flex items-center justify-center hover:bg-purple hover:text-black hover:border-none cursor-pointer"
-      >
-        <Arrow class="size-5.75 fill-current" />
-      </button>
-    </form>
-    <p class="tracking-wide">Join for updates & discounts.</p>
+        Cool fuckin' type is the mission. <br>
+        Launching 2026.
+      </p>
+    </div>
+    <div class="flex flex-col items-center gap-6 text-center">
+      <NewsletterForm client:load />
+    </div>
   </div>
+  <a
+    href="https://www.instagram.com/cherryhousetype"
+    class="absolute top-6 right-6 p-1 hover:text-purple"
+    target="_blank"
+    rel="noopener"
+  >
+    <SiInstagram className="size-6" />
+  </a>
 </Layout>
