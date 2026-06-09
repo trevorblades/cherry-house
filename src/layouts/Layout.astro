@@ -14,6 +14,18 @@ import { SEO } from "astro-seo";
     >
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content={Astro.generator}>
+    <script
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-SXQ6KW6LDP");
+    </script>
     <Font cssVariable="--font-codec-pro" />
     <SEO titleTemplate="%s - Cherry House" titleDefault="Cherry House" />
   </head>
