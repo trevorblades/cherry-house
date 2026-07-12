@@ -6,9 +6,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div
-    class="flex min-h-dvh justify-center flex-col items-center gap-31 md:gap-42.5"
-  >
+  <div class="grid grid-rows-[1fr_auto_1fr] py-2.5 min-h-dvh">
+    <div />
     <div class="flex flex-col gap-7.5 md:gap-15 items-center">
       <Logo class="w-52.5 md:w-90" />
       <p
@@ -18,7 +17,9 @@ import Layout from "../layouts/Layout.astro";
         Launching 2026.
       </p>
     </div>
-    <NewsletterForm client:load />
+    <div class="flex justify-center items-center flex-col">
+      <NewsletterForm client:load />
+    </div>
   </div>
   <a
     href="https://www.instagram.com/cherryhousetype"
