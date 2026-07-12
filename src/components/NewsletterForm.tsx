@@ -13,7 +13,7 @@ export const NewsletterForm: React.FC = () => {
 
   if (status === "success") {
     return (
-      <p className="font-medium text-xs uppercase leading-7.5 tracking-wide md:text-lg md:leading-11">
+      <p className="text-center font-medium text-[10px] uppercase tracking-wide md:text-base">
         <Wave>Thanks for signing up! ✌️</Wave>
       </p>
     );
@@ -34,7 +34,7 @@ export const NewsletterForm: React.FC = () => {
         name="email"
         placeholder="Join the mailing list."
         aria-invalid={isInputError(error) && error.fields.email !== undefined}
-        className="h-7.5 w-51.5 rounded-lg border pt-0.5 text-center font-medium tracking-wider outline-none aria-invalid:border-red-400 max-md:text-xs md:h-11 md:w-75.5 md:rounded-xl md:pt-0.75"
+        className="h-7.5 w-51.5 rounded-lg border pt-0.5 text-center font-medium text-xs tracking-wider outline-none aria-invalid:border-red-400 md:h-11 md:w-75.5 md:rounded-xl md:pt-0.75 md:text-base"
       />
       <button
         disabled={status === "pending"}
