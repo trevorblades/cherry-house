@@ -7,20 +7,18 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <div
-    class="flex min-h-screen justify-center flex-col items-center gap-35 md:gap-33.25 bg-[url(/images/bg.webp)] bg-cover bg-center"
+    class="flex min-h-screen justify-center flex-col items-center gap-31 md:gap-42.5"
   >
-    <div class="flex flex-col gap-7.5 md:gap-14 items-center">
-      <Logo class="w-52.5 md:w-103" />
+    <div class="flex flex-col gap-7.5 md:gap-15 items-center">
+      <Logo class="w-52.5 md:w-90" />
       <p
-        class="uppercase font-bold tracking-wide text-xs md:text-lg leading-tight text-center"
+        class="uppercase font-medium tracking-wide text-xs md:text-lg leading-tight text-center"
       >
         Cool fuckin' type is the mission. <br>
         Launching 2026.
       </p>
     </div>
-    <div class="flex flex-col items-center gap-4 md:gap-6 text-center">
-      <NewsletterForm client:load />
-    </div>
+    <NewsletterForm client:load />
   </div>
   <a
     href="https://www.instagram.com/cherryhousetype"
@@ -28,6 +26,6 @@ import Layout from "../layouts/Layout.astro";
     target="_blank"
     rel="noopener"
   >
-    <SiInstagram className="size-6" />
+    <SiInstagram className="size-7" />
   </a>
 </Layout>

@@ -3,13 +3,12 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, envField, fontProviders } from "astro/config";
 import typesafeRoutes from "astro-typesafe-routes";
-import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   adapter: netlify(),
   integrations: [typesafeRoutes(), react()],
   vite: {
-    plugins: [tailwindcss(), svgr()],
+    plugins: [tailwindcss()],
   },
   fonts: [
     {
