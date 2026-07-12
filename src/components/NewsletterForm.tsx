@@ -41,7 +41,18 @@ export const NewsletterForm: React.FC = () => {
         type="submit"
         className="flex size-7.5 not-disabled:cursor-pointer items-center justify-center rounded-lg border hover:border-none hover:bg-purple hover:text-black focus-visible:outline focus-visible:outline-purple focus-visible:-outline-offset-1 md:size-11 md:rounded-xl"
       >
-        <ArrowIcon className="size-3.5 fill-current md:size-5.75" />
+        {status === "pending" ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="size-3.5 animate-spin fill-current md:size-5.75"
+            viewBox="0 0 256 256"
+          >
+            <title>loading spinner</title>
+            <path d="M140 32v32a12 12 0 0 1-24 0V32a12 12 0 0 1 24 0m84 84h-32a12 12 0 0 0 0 24h32a12 12 0 0 0 0-24m-42.26 48.77a12 12 0 1 0-17 17l22.63 22.63a12 12 0 0 0 17-17ZM128 180a12 12 0 0 0-12 12v32a12 12 0 0 0 24 0v-32a12 12 0 0 0-12-12m-53.74-15.23L51.63 187.4a12 12 0 0 0 17 17l22.63-22.63a12 12 0 1 0-17-17M76 128a12 12 0 0 0-12-12H32a12 12 0 0 0 0 24h32a12 12 0 0 0 12-12m-7.4-76.37a12 12 0 1 0-17 17l22.66 22.6a12 12 0 0 0 17-17Z" />
+          </svg>
+        ) : (
+          <ArrowIcon className="size-3.5 fill-current md:size-5.75" />
+        )}
       </button>
     </form>
   );
