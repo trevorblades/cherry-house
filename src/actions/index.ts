@@ -16,13 +16,21 @@ export const server = {
         email: z.email(),
       }),
       handler: async (input) => {
-        const result = await mailjet
-          .get(`contact/${encodeURIComponent(input.email)}`)
-          .request<Contact.GetContactResponse>();
-        if (result.body.Total === 0) {
-          await mailjet.post("contact").request({
-            Email: input.email,
-          });
+        try {
+          const result = await mailjet
+            .get(`contact/${encodeURIComponent(input.email)}`)
+            .request<Contact.GetContactResponse>();
+          if (result.body.Total === 0) {
+            try {
+              await mailjet.post("contact").request({
+                Email: input.email,
+              } satisfies Contact.PostContactBody);
+            } catch (error) {
+              console.log("e2", error);
+            }
+          }
+        } catch (error) {
+          console.log("e1", error);
         }
       },
     }),
