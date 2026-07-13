@@ -2,6 +2,7 @@ import { defineAction } from "astro:actions";
 import { MAILJET_API_KEY, MAILJET_API_SECRET } from "astro:env/server";
 import { z } from "astro/zod";
 import Mailjet, { type Contact } from "node-mailjet";
+import { until } from "until-async";
 
 const mailjet = new Mailjet({
   apiKey: MAILJET_API_KEY,
@@ -16,21 +17,15 @@ export const server = {
         email: z.email(),
       }),
       handler: async (input) => {
-        try {
-          const result = await mailjet
+        const [error, data] = await until(() =>
+          mailjet
             .get(`contact/${encodeURIComponent(input.email)}`)
-            .request<Contact.GetContactResponse>();
-          if (result.body.Total === 0) {
-            try {
-              await mailjet.post("contact").request({
-                Email: input.email,
-              } satisfies Contact.PostContactBody);
-            } catch (error) {
-              console.log("e2", error);
-            }
-          }
-        } catch (error) {
-          console.log("e1", error);
+            .request<Contact.GetContactResponse>(),
+        );
+        if (error || data.body.Total === 0) {
+          await mailjet.post("contact").request({
+            Email: input.email,
+          } satisfies Contact.PostContactBody);
         }
       },
     }),
