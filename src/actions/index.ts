@@ -17,12 +17,12 @@ export const server = {
         email: z.email(),
       }),
       handler: async (input) => {
-        const [error, data] = await until(() =>
+        const [, data] = await until(() =>
           mailjet
             .get(`contact/${encodeURIComponent(input.email)}`)
             .request<Contact.GetContactResponse>(),
         );
-        if (error || data.body.Total === 0) {
+        if (!data?.body.Total) {
           await mailjet.post("contact").request({
             Email: input.email,
           } satisfies Contact.PostContactBody);
